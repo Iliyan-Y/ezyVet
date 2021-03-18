@@ -1,4 +1,7 @@
 <?php 
+  session_start();
+  $status="";
+  // ######## please do not alter the following code ########
   $products = [
     [ "name" => "Sledgehammer", "price" => 125.75 ],
     [ "name" => "Axe", "price" => 190.50 ],
@@ -7,6 +10,44 @@
     [ "name" => "Hacksaw", "price" => 18.45 ],
     ];
     // ########################################################
+  
+    if (isset($_POST['code']) && $_POST['code']!=""){
+      $code = $_POST['code'];
+    //$result = $products;
+    
+      $selected_product; 
+      foreach($products as $product) {
+        if($product['name'] == $code) {
+          $selected_product = $product;
+        }
+      };
+    
+      $name = $selected_product['name'];
+      $price = $selected_product['price'];
+    
+      $cartArray = array(
+        $code=>array(
+        'name'=>$name,
+        'price'=>$price,
+        'quantity'=>1,
+        ));
+    
+      if(empty($_SESSION["shopping_cart"])) {
+        $_SESSION["shopping_cart"] = $cartArray;
+        $status = "<div class='box'>Product is added to your cart!</div>";
+        }else{
+        $array_keys = array_keys($_SESSION["shopping_cart"]);
+          if(in_array($code,$array_keys)) {
+            $_SESSION["shopping_cart"][$code]['quantity']++;
+            $status = "<div class='box' style='color:red;'>
+            {$code} total: {$_SESSION["shopping_cart"][$code]['quantity']}</div>";	
+        } else {
+          $_SESSION["shopping_cart"] = array_merge($_SESSION["shopping_cart"],$cartArray);
+          $status = "<div class='box'>Product is added to your cart!</div>";
+        }
+      }
+    }  
+    
 ?>
 
 <!DOCTYPE html>
