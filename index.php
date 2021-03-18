@@ -58,6 +58,8 @@
     <title>Cart Home</title>
   </head>
   <body>
+
+  <a href="cart.php">Cart</span></a>
   
   <div class="message_box" style="margin:10px 0px;">
       <?php echo $status; ?>
