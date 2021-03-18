@@ -13,9 +13,8 @@
   
     if (isset($_POST['code']) && $_POST['code']!=""){
       $code = $_POST['code'];
-    //$result = $products;
-    
       $selected_product; 
+
       foreach($products as $product) {
         if($product['name'] == $code) {
           $selected_product = $product;
@@ -59,6 +58,10 @@
     <title>Cart Home</title>
   </head>
   <body>
+  
+  <div class="message_box" style="margin:10px 0px;">
+      <?php echo $status; ?>
+  </div>
 
   <?php foreach ($products as $product) { ?>
     <div class="product">
