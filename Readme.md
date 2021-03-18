@@ -30,11 +30,11 @@
 <?php
 // ######## please do not alter the following code ########
 $products = [
-[ "name" => " Sledgehammer", " => 125.75 ],
-[ "name" => " Axe", " => 190.50 ],
-[ "name" => " Bandsaw", " => 562.13 1 ],
-[ "name" => " Chisel", " => 12.9 ],
-[ "name" => " Hacksaw", "pric e => 18.45 ],
-];
+  [ "name" => "Sledgehammer", "price" => 125.75 ],
+  [ "name" => "Axe", "price" => 190.50 ],
+  [ "name" => "Bandsaw", "price" => 562.131 ],
+  [ "name" => "Chisel", "price" => 12.9 ],
+  [ "name" => "Hacksaw", "price" => 18.45 ],
+  ];
 // ########################################################
 ```
