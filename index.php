@@ -17,5 +17,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cart Home</title>
   </head>
-  <body></body>
+  <body>
+
+  <?php foreach ($products as $product) { ?>
+    <div class="product">
+      <form method='post' action=''>
+        <input type='hidden' name='code' value=<?php echo $product['name'] ?> />
+          <?php echo $product['name']; echo ' '; echo number_format((float)$product['price'], 2, '.', '')  ?> 
+          <button type='submit'>Add to cart</button>
+      </form>
+   </div></br>
+  <?php }?>
+
+  </body>
 </html>
