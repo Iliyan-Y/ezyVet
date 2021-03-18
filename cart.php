@@ -13,6 +13,15 @@
         }		
     }
   }
+
+  if (isset($_POST['action']) && $_POST['action']=="change"){
+    foreach($_SESSION["shopping_cart"] as &$value){
+      if($value['name'] === $_POST["code"]){
+          $value['quantity'] = $_POST["quantity"];
+          break;
+        }
+      }
+    }
 ?>
 
 <!DOCTYPE html>
@@ -26,7 +35,9 @@
   <body>
     <h2>Shopping Cart</h2>  
     <a href="index.php">Back To the Shop</a></br>
-    <table class="table">
+
+
+<table class="table">
 <tbody>
 <tr>
 <td>ITEM NAME |</td>
