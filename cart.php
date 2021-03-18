@@ -1,3 +1,20 @@
+<?php
+  $status="";
+  if (isset($_POST['action']) && $_POST['action']=="remove"){
+    if(!empty($_SESSION["shopping_cart"])) {
+      foreach($_SESSION["shopping_cart"] as $key => $value) {
+        if($_POST["code"] == $key){
+        unset($_SESSION["shopping_cart"][$key]);
+        $status = "<div class='box' style='color:red;'>
+        {$_POST['code']} is removed from your cart!</div>";
+        }
+        if(empty($_SESSION["shopping_cart"]))
+        unset($_SESSION["shopping_cart"]);
+        }		
+    }
+  }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
