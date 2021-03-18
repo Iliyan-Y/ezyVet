@@ -1,5 +1,11 @@
 # ezyVet Developers Practical Task Brief
 
+## To run the code
+
+- from the root dir
+  `php -S localhost:3000`
+- open [localhost:3000](http://localhost:3000/)
+
 ## Objective:
 
 - Write a simple PHP Class for a basic shopping cart.
