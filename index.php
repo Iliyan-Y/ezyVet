@@ -59,8 +59,15 @@
   </head>
   <body>
 
-  <a href="cart.php">Cart</span></a>
-  
+  <?php
+if(!empty($_SESSION["shopping_cart"])) {
+$cart_count = count(array_keys($_SESSION["shopping_cart"]));
+?>
+<div class="cart_div">
+<a href="cart.php">Cart: <span><?php echo $cart_count; ?></span></a>
+</div>
+<?php } else  echo "<div> Card is empty </div>" ?> 
+
   <div class="message_box" style="margin:10px 0px;">
       <?php echo $status; ?>
   </div>
